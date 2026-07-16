@@ -10,17 +10,13 @@ test('remove item from cart', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
   await page.getByRole('button', { name: 'Submit' }).click();
   
-  // Add 2 items to cart
   await page.getByRole('button', { name: 'ADD TO CART' }).first().click();
   await page.getByRole('button', { name: 'ADD TO CART' }).nth(1).click();
   
-  // Verify 2 items appear in cart
   await expect(page.getByRole('button', { name: 'REMOVE' })).toHaveCount(2);
   
-  // Remove one item
   await page.getByRole('button', { name: 'REMOVE' }).first().click();
   
-  // Verify only 1 item remains
   await expect(page.getByRole('button', { name: 'REMOVE' })).toHaveCount(1);
 });
 

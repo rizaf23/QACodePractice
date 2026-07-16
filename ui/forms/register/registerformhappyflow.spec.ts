@@ -11,9 +11,6 @@ test('register form field validation test - happy flow', async ({ page }) => {
   await page.getByRole('button', { name: 'Register' }).click();
   await expect(page.getByText('The account has been successfully created!')).toBeVisible();
 });
-
-
-
 test.afterEach(async ({ page }) => {
   await page.close();
 });

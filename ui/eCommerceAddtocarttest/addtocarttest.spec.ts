@@ -10,7 +10,7 @@ test('add to cart', async ({ page }) => {
   await page.getByRole('button', { name: 'Submit' }).click();
   await page.getByRole('button', { name: 'ADD TO CART' }).first().click();
   await page.getByRole('button', { name: 'ADD TO CART' }).nth(1).click(); 
-  // Verify items appear in cart
+
   await expect(page.getByRole('button', { name: 'REMOVE' })).toHaveCount(2);
 });
 
