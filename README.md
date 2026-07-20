@@ -27,8 +27,10 @@ QA-PRACTICE
 │ └── test.fixtures.ts
 │
 ├── pages
-│ ├── HomePage.ts
-│ └── ButtonActionsPage.ts
+│   ├── ButtonActionsPage.ts
+|   ├── HomePage.ts
+│   └── SpotTheBugsPage.ts
+|
 │
 ├── tests
 │ ├── api
@@ -104,16 +106,14 @@ Run API tests
 npx playwright test --project="API Tests"
 ```
 
-Run a specific test
+Run a specific test - these are the tests that i have already refactored
 
 ```bash
 npx playwright test tests/ui/buttonactions/btnactionstest.spec.ts
 ```
 
-Generate the HTML report
-
 ```bash
-npx playwright show-report
+npx playwright test tests/ui/buttonactions/spotthebugs.spec.ts
 ```
 
 ---
@@ -122,7 +122,7 @@ npx playwright show-report
 
 As part of this assessment, I reviewed the feedback provided and started improving the overall framework structure rather than only focusing on individual test cases.
 
-The **Button Actions** module has been refactored to demonstrate the intended framework design by implementing:
+The **Button Actions** and **Spot the Bugs** modules have been refactored to demonstrate the intended framework design by implementing:
 
 - Page Object Model (POM)
 - Reusable Playwright Fixtures
