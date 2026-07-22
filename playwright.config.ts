@@ -57,7 +57,7 @@ ignoreHTTPSErrors: true
 },
 
 // ==========================
-// API AUTOMATION
+// API AUTOMATION PLEASE IGNORE THIS WAS FOR THE API RELATED TEST WHICH IS NOT INSCOPE FOR THIS ASSESSMENT
 // ==========================
 {
 name: 'API Tests',

@@ -2,58 +2,38 @@
 
 ## Overview
 
-This project is an automation framework built using Playwright and TypeScript to automate both UI and API testing.
+This project is a Playwright automation framework built with TypeScript for the **Spot the Bugs Form** assessment on the QA Practice website.
 
-The objective of this project is not only to automate test scenarios, but also to demonstrate how a Playwright framework can be organised using good automation practices such as the Page Object Model (POM), reusable fixtures and a clear project structure.
+The objective of this project was not only to automate the required test scenarios, but also to demonstrate how a Playwright framework can be structured using automation best practices such as the Page Object Model (POM), reusable fixtures, and a clean, maintainable project structure.
 
 ---
 
 ## Technology Stack
 
-- Playwright
-- TypeScript
-- Node.js
-- Playwright Test Runner
-- Playwright Codegen (test generator)
+* Playwright
+* TypeScript
+* Node.js
+* Playwright Test Runner
+* Playwright Code Generator (Codegen)
 
 ---
 
 ## Project Structure
 
-```
+```text
 QA-PRACTICE
 │
 ├── fixtures
-│ └── test.fixtures.ts
+│   └── test.fixtures.ts
 │
 ├── pages
-│   ├── ButtonActionsPage.ts
-|   ├── HomePage.ts
+│   ├── HomePage.ts
 │   └── SpotTheBugsPage.ts
-|
 │
 ├── tests
-│ ├── api
-│ └── ui
-│ ├── alerts
-│ ├── buttonactions
-│ ├── buttons
-│ ├── datepicker
-│ ├── dropdowns
-│ ├── eCommerceAddtocarttest
-│ ├── eCommerceLogintests
-| ├── eCommerceLogintests
-| ├── eCommerceShippingfieldvalidationtest
-| ├── fileupload
-| ├── forms
-| ├── gifpage
-| ├── iframes
-| ├── loader
-| ├── newtabwindow
-| ├── pagination
-| ├── productslistshop
-| ├── spotthebugs
-| ├── tables
+│   └── ui
+│       └── spotthebugs
+│           └── spotthebugs.spec.ts
 │
 ├── utils
 ├── .gitignore
@@ -66,94 +46,59 @@ QA-PRACTICE
 
 ## Framework Design
 
-This framework separates UI and API tests into different Playwright projects while keeping the configuration centralised in a single `playwright.config.ts` file.
+The framework follows the **Page Object Model (POM)**, separating page interactions from test logic to improve readability, maintainability, and reusability.
 
-The framework follows the Page Object Model (POM) approach, where page interactions are separated from the test logic to improve readability and maintainability.
-
-Reusable Playwright fixtures are also used to reduce duplicated setup code and make the test cases cleaner.
+Reusable Playwright fixtures are used to minimise duplicated setup code, keeping the test cases concise and focused on the assertions being validated.
 
 ---
 
 ## Running the Project
 
-Install dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Install Playwright browsers
+Install Playwright browsers:
 
 ```bash
 npx playwright install
 ```
 
-Run all tests
+Run all tests:
 
 ```bash
 npx playwright test
 ```
 
-Run UI tests
+Run the Spot the Bugs test:
 
 ```bash
-npx playwright test --project="UI Tests"
-```
-
-Run API tests
-
-```bash
-npx playwright test --project="API Tests"
-```
-
-Run a specific test - these are the tests that i have already refactored
-
-```bash
-npx playwright test tests/ui/buttonactions/btnactionstest.spec.ts
-```
-
-```bash
-npx playwright test tests/ui/buttonactions/spotthebugs.spec.ts
+npx playwright test tests/ui/spotthebugs/spotthebugs.spec.ts
 ```
 
 ---
 
-## Current Framework Improvements
+## Framework Practices
 
-As part of this assessment, I reviewed the feedback provided and started improving the overall framework structure rather than only focusing on individual test cases.
+The framework demonstrates the following practices:
 
-The **Button Actions** and **Spot the Bugs** modules have been refactored to demonstrate the intended framework design by implementing:
-
-- Page Object Model (POM)
-- Reusable Playwright Fixtures
-- Improved separation between page actions and test logic
-- Cleaner and more maintainable test structure
-
-This module serves as the reference implementation for how the remaining UI modules can be refactored using the same design pattern while preserving the existing test coverage.
-
----
-
-## Best Practices Applied
-
-- Page Object Model (POM)
-- Reusable Fixtures
-- Separation of UI and API tests
-- Centralised Playwright configuration
-- Reusable methods
-- Readable test cases
-
----
-
-## Future Improvements
-
-Given additional time, the same Page Object Model approach demonstrated in the Button Actions module can be consistently applied across the remaining UI modules to further improve maintainability, reduce duplicated code and keep the framework scalable as additional test coverage is added.
+* Page Object Model (POM)
+* Reusable Playwright fixtures
+* Separation of page actions from test logic
+* Centralised Playwright configuration
+* Reusable helper methods
+* Readable and maintainable test cases
 
 ---
 
 ## Notes
 
-My day-to-day experience with Playwright has primarily involved maintaining and extending an existing automation framework by adding new test coverage and enhancing existing test suites.
+I initially misunderstood the scope of the assessment and thought the task was to automate the entire QA Practice website rather than only the **Spot the Bugs Form** assessment.
 
-This assessment provided a good opportunity to revisit the framework architecture itself and apply best practices such as the Page Object Model, reusable fixtures and improved project organisation.
+As a result, I first built an automation framework that covered multiple modules across the site. To keep this submission focused and easier to review, I have removed the additional modules and retained only the implementation relevant to the assessment.
 
-The changes included in this submission reflect those improvements while maintaining the existing functional test coverage.
+The implementation was completed without using AI-generated code. The initial navigation steps for the tests were generated using the official Playwright Code Generator, which is why comments such as `// Recording...` appear in some test files. Those generated steps were then manually refactored, organised, and extended with assertions, reusable page objects, fixtures, and additional test logic.
+
+My current production experience with Playwright is primarily using C#, where I maintain and extend existing automation frameworks by adding new test coverage and improving existing test suites. This assessment was my first opportunity to build a Playwright framework from the ground up using TypeScript.
