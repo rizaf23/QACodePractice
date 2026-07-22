@@ -27,7 +27,6 @@ QA-PRACTICE
 │   └── test.fixtures.ts
 │
 ├── pages
-│   ├── HomePage.ts
 │   └── SpotTheBugsPage.ts
 │
 ├── tests
